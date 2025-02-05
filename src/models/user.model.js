@@ -1,6 +1,6 @@
-import mongoose, {Schema} from "mongoose"
-import jwt from "jsonwebtoken"
-import bcrypt from "bcrypt"
+import mongoose, {Schema} from "mongoose" // importing mongoose and schema from mongoose
+import jwt from "jsonwebtoken" // importing jsonwebtoken 
+import bcrypt from "bcrypt" // importing bcrypt, it helps to hash the password
 
 const userSchema = new Schema(
     {
@@ -63,7 +63,7 @@ userSchema.pre("save", async function(next){
     if(!this.isModified("password")) return next();
     this.password = await bcrypt.hash(this.password, 10)
     next()
-})
+})// pre hook is a middleware that is running before saving to encrypt the password before savingi the information,
 
 userSchema.methods.isPasswordCorrect = async function(password){
     return await bcrypt.compare(password, this.password)

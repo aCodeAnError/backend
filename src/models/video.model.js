@@ -1,5 +1,5 @@
 import mongoose, {Schema} from "mongoose"
-import mongooseAggregatePaginate from "mongoose-aggregate-paginate-v2"
+import mongooseAggregatePaginate from "mongoose-aggregate-paginate-v2" //helps to write aggregation queries,used as a plugin
 
 const videoSchema = new Schema(
     {
@@ -47,6 +47,6 @@ const videoSchema = new Schema(
     { timestamps : true}
 )
 
-videoSchema.plugin(mongooseAggregatePaginate)
+videoSchema.plugin(mongooseAggregatePaginate) // now we can write aggregation queries we added aggregate as a plugin in the videoSchema
 
 export const Video = mongoose.model("Video", videoSchema)

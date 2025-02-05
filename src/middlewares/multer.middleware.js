@@ -1,4 +1,4 @@
-import multer from "multer";
+import multer from "multer"; // importing multer
 
 const storage = multer.diskStorage({
     destination: function (req, file, cb) {
